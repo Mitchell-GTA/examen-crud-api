@@ -1,0 +1,139 @@
+{
+	"info": {
+		"_postman_id": "b7ceb480-0204-46bb-afe1-965a79884cab",
+		"name": "Examen",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "9058122"
+	},
+	"item": [
+		{
+			"name": "Guardar Estudiante",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"studentName\":\"Juan Julio\",\r\n    \"age\": 26,\r\n    \"city\": \"Bogotá\",\r\n    \"timezone\": \"America/Bogota\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{local}}api/students",
+					"host": [
+						"{{local}}api"
+					],
+					"path": [
+						"students"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear Examen",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"examName\": \"Examen 1\",\r\n    \"totalScore\": 100,\r\n    \"questions\": [\r\n        {\r\n            \"question\": \"Pregunta 1. ¿Que es programacion orientada a objectos?\",\r\n            \"options\": [\r\n                {\r\n                    \"optionText\": \"A. Opción 1\",\r\n                    \"isCorrect\": 0\r\n                },\r\n                {\r\n                    \"optionText\": \"B. Opción 1\",\r\n                    \"isCorrect\": 0\r\n                },\r\n                {\r\n                    \"optionText\": \"C. Opción 1\",\r\n                    \"isCorrect\": 0\r\n                },\r\n                {\r\n                    \"optionText\": \"D. Opción 1\",\r\n                    \"isCorrect\": 1\r\n                }\r\n            ]\r\n        },\r\n        {\r\n            \"question\": \"Pregunta 2. ¿Que es un Objecto?\",\r\n            \"options\": [\r\n                {\r\n                    \"optionText\": \"A. Opción 1\",\r\n                    \"isCorrect\": 1\r\n                },\r\n                {\r\n                    \"optionText\": \"B. Opción 1\",\r\n                    \"isCorrect\": 0\r\n                },\r\n                {\r\n                    \"optionText\": \"C. Opción 1\",\r\n                    \"isCorrect\": 0\r\n                },\r\n                {\r\n                    \"optionText\": \"D. Opción 1\",\r\n                    \"isCorrect\": 0\r\n                }\r\n            ]\r\n        },\r\n        {\r\n            \"question\": \"Pregunta 3. ¿Que es una interfaz?\",\r\n            \"options\": [\r\n                {\r\n                    \"optionText\": \"A. Opción 1\",\r\n                    \"isCorrect\": 1\r\n                },\r\n                {\r\n                    \"optionText\": \"B. Opción 1\",\r\n                    \"isCorrect\": 0\r\n                },\r\n                {\r\n                    \"optionText\": \"C. Opción 1\",\r\n                    \"isCorrect\": 0\r\n                },\r\n                {\r\n                    \"optionText\": \"D. Opción 1\",\r\n                    \"isCorrect\": 0\r\n                }\r\n            ]\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{local}}api/exams",
+					"host": [
+						"{{local}}api"
+					],
+					"path": [
+						"exams"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Asignar examen a estudiante ",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"idExam\": 6,\r\n    \"idStudent\":2,\r\n    \"dateExamCurrent\": \"2023-06-26 11:30\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{local}}api/exams/assign",
+					"host": [
+						"{{local}}api"
+					],
+					"path": [
+						"exams",
+						"assign"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Guardar respuestas examen/estudiante",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"answers\":[\r\n        {\r\n            \"idQuestion\": 16,\r\n            \"selectedOptionId\":63\r\n        },\r\n        {\r\n            \"idQuestion\": 17,\r\n            \"selectedOptionId\":66\r\n        },\r\n        {\r\n            \"idQuestion\": 18,\r\n            \"selectedOptionId\":71\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{local}}api/exams/3/students/answers",
+					"host": [
+						"{{local}}api"
+					],
+					"path": [
+						"exams",
+						"3",
+						"students",
+						"answers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener la calificacion del examen",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{local}}api/exams/6/students/2/grade",
+					"host": [
+						"{{local}}api"
+					],
+					"path": [
+						"exams",
+						"6",
+						"students",
+						"2",
+						"grade"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
